@@ -18,7 +18,9 @@ DOMParser.prototype.parseFromString = function(source,mimeType){
 	
 	sax.errorHandler = buildErrorHandler(errorHandler,domBuilder,locator);
 	sax.domBuilder = options.domBuilder || domBuilder;
-	if(isHTML){
+
+	// https://fr.wikipedia.org/wiki/Type_MIME
+	if(mimeType === 'application/xhtml+xml'){
 		defaultNSMap['']= 'http://www.w3.org/1999/xhtml';
 	}
 	defaultNSMap.xml = defaultNSMap.xml || 'http://www.w3.org/XML/1998/namespace';
