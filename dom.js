@@ -1246,3 +1246,6 @@ try{
 	exports.DOMImplementation = DOMImplementation;
 	exports.XMLSerializer = XMLSerializer;
 //}
+
+exports.DOMException = Element;
+exports.Node = Node;
