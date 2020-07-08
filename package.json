@@ -1,22 +1,80 @@
 {
-  "name": "xmldom-alpha",
-  "version": "0.1.28",
-  "description": "A W3C Standard XML DOM(Level2 CORE) implementation and parser(DOMParser/XMLSerializer).",
-  "keywords": ["w3c","dom","xml","parser","javascript","DOMParser","XMLSerializer"],
-  "author": "jindw <jindw@xidea.org> (http://www.xidea.org)",
-  "homepage": "https://github.com/jindw/xmldom",
-  "repository": {"type": "git","url": "git://github.com/jindw/xmldom.git"},
-  "main": "./dom-parser.js",
-  "scripts" : { "test": "proof platform win32 && proof test */*/*.t.js || t/test" },
-  "engines": {"node": ">=0.1"},
-  "dependencies": {},
-  "devDependencies": { "proof": "0.0.28" },
-  "maintainers": [{"name": "jindw","email": "jindw@xidea.org","url": "http://www.xidea.org"}],
-  "contributors": [
-    {"name" : "Yaron Naveh","email" : "yaronn01@gmail.com","web" : "http://webservices20.blogspot.com/"},
-    {"name" : "Harutyun Amirjanyan","email" : "amirjanyan@gmail.com","web" : "https://github.com/nightwing"},
-    {"name" : "Alan Gutierrez","email" : "alan@prettyrobots.com","web" : "http://www.prettyrobots.com/"}
+  "name": "xmldom",
+  "version": "0.4.0-dev",
+  "description": "A pure JavaScript W3C standard-based (XML DOM Level 2 Core) DOMParser and XMLSerializer module.",
+  "keywords": [
+    "w3c",
+    "dom",
+    "xml",
+    "parser",
+    "javascript",
+    "DOMParser",
+    "XMLSerializer"
   ],
-  "bugs": {"email": "jindw@xidea.org","url": "http://github.com/jindw/xmldom/issues"},
-  "license": "(LGPL-2.0 or MIT)"
+  "author": "jindw <jindw@xidea.org> (http://www.xidea.org)",
+  "homepage": "https://github.com/xmldom/xmldom",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xmldom/xmldom.git"
+  },
+  "main": "lib/dom-parser.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "pretest": "XMLDOM_ASSERT_STRICT=1 npm run test:assert",
+    "test": "vows 'test/**/*.vows.js'",
+    "test:assert": "vows test/assert.vows.js",
+    "start": "nodemon --watch package.json --watch lib --watch test --exec 'npm --silent run test'",
+    "stryker": "stryker run"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stryker-mutator/core": "^3.3.0",
+    "@stryker-mutator/javascript-mutator": "^3.3.0",
+    "dom-js": "0.0.9",
+    "nodemon": "^2.0.4",
+    "vows": "^0.8.3"
+  },
+  "maintainers": [
+    {
+      "name": "brodybits",
+      "email": "chris@brody.consulting",
+      "url": "https://github.com/brodybits"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "jindw",
+      "email": "jindw@xidea.org",
+      "url": "http://www.xidea.org"
+    },
+    {
+      "name": "Yaron Naveh",
+      "email": "yaronn01@gmail.com",
+      "web": "http://webservices20.blogspot.com/"
+    },
+    {
+      "name": "Harutyun Amirjanyan",
+      "email": "amirjanyan@gmail.com",
+      "web": "https://github.com/nightwing"
+    },
+    {
+      "name": "Alan Gutierrez",
+      "email": "alan@prettyrobots.com",
+      "web": "http://www.prettyrobots.com/"
+    },
+    {
+      "name": "Eric Newport",
+      "email": "kethinov@gmail.com",
+      "web": "https://github.com/kethinov"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/xmldom/xmldom/issues"
+  },
+  "license": "(LGPL-2.0 OR MIT)"
 }
